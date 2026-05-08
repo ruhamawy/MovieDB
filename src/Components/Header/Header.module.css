@@ -1,0 +1,246 @@
+
+.header{
+    background: transparent;
+    paddding:16px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index:1000;
+    backdrop-filter: blur(3px);
+   transition: background-color 0.4s ease;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 40px;
+    gap: 40px;
+}
+.logos{
+    flex-shrink: 0;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.logos:hover{
+    opacity: 0.8;
+}
+/* nav section  */
+.nav{
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    align-items: center;
+}
+.navlink{
+    color: #f5f5f1;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+/* right side section */
+.rightside{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+.searchcontainer{
+position: relative;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.searchbutton{
+background: none;
+border: none;
+color: #f5f5f1;
+cursor: pointer;
+padding: 4px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: color 0.3s ease;
+}
+.searchbutton:hover{
+    color: #b3b3b0;
+}
+.searchinput{
+    background-color: rgba(0,0,0,0.1);
+    border: 1px solid #808080;
+    color: #f5f5f1;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 200px;
+    transition: all 0.3s ease;
+}
+.searchinput:focus{
+    outline: none;
+    background-color: rgba(0,0,0,0.5);
+    border-color: #f5f5f1;
+}
+.searchinput::placeholder{
+    color: #808080;
+}
+.iconbutton{
+    position: relative;
+    background: none;
+    border: none;
+    color: #f5f5f1;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+
+}
+.iconbutton:hover{
+    color: #b3b3b0;
+}
+.notificationiconbadge{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    background-color: #e50914;
+    border-radius: 50%;
+}
+.profilecontainer{
+    position: relative;
+}
+.profilebutton{
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #f5f5f1;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.profilebutton:hover{
+    background-color: rgba(0,0,0,0.1);
+    /* color: #b3b3b0; */
+
+}
+.profileavatar{
+    width: 32px;
+    height: 32px;
+    background-color: #564d4d;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f1;
+    font-size: 16px;
+
+}
+.profilemenu{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background-color: rgba(0,0,0,0.9);
+    border: 1px solid #404040;
+    border-radius: 4px;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+    animation: slideDown o.25 ease-out;
+}
+@keyframes slideDown{
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.profilemenuitem{
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    color: #f5f5f1;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+}
+.profilemenuitem :hover{
+    background-color: rgba(255,255, 255, 0.1
+    );
+}
+.profilemenudivider{
+    border:none ;
+    border-top: 1px solid #404040;
+    margin: 8px 0;
+
+}
+/* responsive */
+@media (max-width:1024px){
+    .container{
+        padding: 0 24px;
+        gap: 24px;
+    }
+    .nav{
+        gap: 16px;
+    }
+    .navlink{
+        font-size: 13px;
+    }
+    .searchinput{
+        width:150px ;
+    }
+}
+@media (max-width:768px){
+    .container{
+        padding: 0 16px;
+        gap: 16px;
+    }
+    .nav{
+        display: none;
+    }
+    .logos{
+        width: 120px;
+    }
+    .searchinput{
+        width: 120px;
+    }
+    .rightside{
+        gap: 16px;
+    }
+}
+@media (max-width:480px){
+    .container{
+        padding: 0 12px;
+       
+    }
+   
+    .logos{
+        width: 70px;
+    }
+    .searchinput{
+        width: 100%;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    .rightside{
+        gap: 12px;
+    }
+}
