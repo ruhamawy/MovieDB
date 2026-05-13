@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import logo from './../../assets/image/logo.png'
 
 import { Link} from 'react-router-dom'
@@ -8,8 +8,27 @@ import style from './Header.module.css'
 function Header() {
     const [issearchopen, setIsseachopen] = useState(false);
     const [isprofileopen, setisprofileopen] = useState(false);
+    //    for blur effect
+    const [isscrolled, setisscrolled] = useState(false);
+    useEffect(() => {
+        const handlescroll = () => {
+            if (window.scrollY > 50) {
+                setisscrolled(true)
+            }
+            else {
+                setisscrolled(false) 
+            }
+        }
+        window.addEventListener('scroll', handlescroll);
+        return ()=>window.removeEventListener('scroll',handlescroll)
+        
+    },[])
+
+
+
+
   return (
-      <header className={style.header}>
+      <header className={`${style.header} ${isscrolled ?style.scrolled:""}`}>
           <div className={style.container} >
               
               {/* log  section*/}
