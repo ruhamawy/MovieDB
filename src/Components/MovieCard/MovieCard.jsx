@@ -4,43 +4,65 @@ import { FaPlayCircle } from "react-icons/fa";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { GoCheckCircleFill } from "react-icons/go";
-import { LiaEtsy } from "react-icons/lia";
+
 
 function MovieCard() {
   let geners = ["Adventure", "Action", "Thriller"];
   return (
-    <div>
+    <div className={style.Cardwrapper}>
       {/* image poster*/}
-      <img src="" alt="" />
+      <img
+        className={style.poster}
+        // src={movie.poster_path}
+        alt="poster image"
+      />
 
       {/* image on hover  div*/}
-      <div>
+      <div className={style.hovercard}>
         {/* image on hover */}
-        <img src="" alt="" />
+        <img
+          className={style.hoverImage} 
+          // src={movie.poster_path}
+          alt="hover image"
+        />
 
         {/* badge */}
-        <div>Recently added</div>
+        <div className={style.badge}>Recently added</div>
 
         {/* button row */}
-        <div>
-          <FaPlayCircle color="white" size={40} />
-          <BsPlusCircleFill color="white" size={40} />
-          <GoCheckCircleFill color="white" size={40} />
-          <IoIosArrowDropdownCircle color="white" size={40} />
+        <div className={style.buttonrow}>
+          <FaPlayCircle className={style.circlebtn} color="white" size={40} />
+          <BsPlusCircleFill
+            className={style.circlebtn}
+            color="white"
+            size={40}
+          />
+          <GoCheckCircleFill
+            className={style.circlebtn}
+            color="white"
+            size={40}
+          />
+          <IoIosArrowDropdownCircle
+            className={style.circlebutton}
+            color="white"
+            size={40}
+          />
         </div>
         {/* meta data */}
-        <div>
-          <span>U/A 16+</span>
-          <span>Movie</span>
-          <span>HD</span>
+        <div className={style.metaRow}>
+          <span className={style.tag}>U/A 16+</span>
+          <span className={style.tag}>Movie</span>
+          <span className={style.tag}>HD</span>
         </div>
         {/*  movie gener */}
-        <div>
+        <div className={style.gener}>
           {geners.map((g, index) => {
             return (
               <span key={index}>
                 {g}
-                {index < geners.length - 1 && <span>.</span>}
+                {index < geners.length - 1 && (
+                  <span className={style.dot}>•</span>
+                )}
               </span>
             );
           })}
