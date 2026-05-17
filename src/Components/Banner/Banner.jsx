@@ -62,9 +62,7 @@ useEffect(() => {
           <div className={style.fadeBottom}>
             
       </div>
-      <div>
-        test
-      </div>
+     
 
 
 
