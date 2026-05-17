@@ -5,15 +5,16 @@ import { BsPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { GoCheckCircleFill } from "react-icons/go";
 
+const Image_Base = "https://image.tmdb.org/t/p/w500";
 
-function MovieCard() {
+function MovieCard({movie}) {
   let geners = ["Adventure", "Action", "Thriller"];
   return (
     <div className={style.Cardwrapper}>
       {/* image poster*/}
       <img
         className={style.poster}
-        // src={movie.poster_path}
+        src={`${Image_Base}${movie?.poster_path}`}
         alt="poster image"
       />
 
@@ -21,8 +22,8 @@ function MovieCard() {
       <div className={style.hovercard}>
         {/* image on hover */}
         <img
-          className={style.hoverImage} 
-          // src={movie.poster_path}
+          className={style.hoverImage}
+          src={`${Image_Base}${movie?.poster_path}`}
           alt="hover image"
         />
 

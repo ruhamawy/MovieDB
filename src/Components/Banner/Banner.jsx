@@ -1,21 +1,49 @@
-import React from 'react'
+// import React from 'react'
+import React, { useEffect,useState } from "react";
+
 import NetflixbannerLogo from "./../../assets/image/logo.png"
 import { Play, Info } from 'lucide-react'
 import style from './Banner.module.css'
- function Banner() {
+import { movieInstance } from "../../Utility/MovieInstance";
+import requests from "../../Utility/requestUrls";
+const BANNER_BASE = "https://image.tmdb.org/t/p/original/";
+function Banner() {
+     
+const [bannerImage, setBannerImage] = useState({});
+console.log(bannerImage);
+useEffect(() => {
+  async function fetchBannerImage() {
+    const request = await movieInstance.get(requests.fetchNetflixOriginals);
+    setBannerImage(
+      request.data.results[
+        Math.floor(Math.random() * request.data.results.length)
+      ]
+    );
+  }
+
+  fetchBannerImage();
+}, []);
+
+  function truncate(str, n) {
+  return str?.length>n ?str.substr(0,n-1)+"...":str
+}
   return (
-    <div className={style.banner}>
+    <div className={style.banner}
+      style={{
+        backgroundsize: "cover",
+        backgroundImage: `url(${BANNER_BASE}${bannerImage.backdrop_path})`
+      }}>
           <div className={style.contents}>
               {/* netflix image */}
               <img className={style.logoimg} src={NetflixbannerLogo} alt="Netflix logo" />
 
               {/* tittli */}
-              <h1 className={style.title}>Bridgerton</h1>
+        <h1 className={style.title}>{ bannerImage?.original_name}</h1>
 
 
               {/* description */}
               <h1 className={style.description}>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur ex ac viverra finibus. Sed s mollis nisl. Praesent vel odio nec risus rutrum tempor. lectus.
+                {truncate(bannerImage?.overview,120)}
               </h1>
 
               {/* buttons */}
@@ -33,7 +61,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur ex ac
   {/* fading */}
           <div className={style.fadeBottom}>
             
-          </div>
+      </div>
+      <div>
+        test
+      </div>
 
 
 
